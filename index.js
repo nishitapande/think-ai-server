@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("Api is running");
 });
 
-app.use("/api/team", teamRoutes);
+app.use("api/team", teamRoutes);
 app.use("/api/events", eventsRoutes);
 const PORT = process.env.PORT || 5000;
 
