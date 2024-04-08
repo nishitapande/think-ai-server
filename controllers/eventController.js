@@ -9,7 +9,7 @@ exports.getAllEvents = async (req, res, next) => {
         message: "No team members found",
       });
     }
-    res.status(200).json(events);
+    res.status(200).send(events);
     next();
   } catch (err) {
     res.status(500).json({
