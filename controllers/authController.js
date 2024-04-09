@@ -1,4 +1,3 @@
-
 const User = require("../models/userModel");
 
 exports.createAdmin = async (req, res, next) => {
@@ -27,7 +26,8 @@ exports.login = async (req, res, next) => {
     });
   }
   //STEP2: IF PASSWORD IF CORRECT
-  const isPasswordCorrect = await matchPassword(password, user.password);
+  const isPasswordCorrect = await matchPassword(password, User.password);
+  console.log(User.password);
   if (!isPasswordCorrect) {
     return res.status(401).json({
       message: "Invalid email or password",

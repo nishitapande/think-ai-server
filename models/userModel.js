@@ -23,12 +23,12 @@ userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, 12);
 });
 
-userSchema.methods.matchPassword(async function (
+userSchema.methods.matchPassword = async function (
   enteredPassword,
   userPassword
 ) {
   return await bcrypt.compare(enteredPassword, userPassword);
-});
+};
 
 const User = mongoose.model("User", userSchema);
 
