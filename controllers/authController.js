@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+
 const User = require("../models/userModel");
 
 exports.createAdmin = async (req, res, next) => {
