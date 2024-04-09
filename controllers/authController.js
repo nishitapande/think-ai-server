@@ -2,7 +2,7 @@ const User = require("../models/userModel");
 
 exports.createAdmin = async (req, res, next) => {
   const { name, email, password } = req.body;
-  const user = User.findOne(email);
+  const user = User.findOne({ email });
   if (user) {
     return res.status(401).json({
       message: "User Exists",
