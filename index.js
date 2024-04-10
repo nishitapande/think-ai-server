@@ -9,7 +9,12 @@ dotenv.config();
 connectDB();
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000/", //https://think-ai-beta.vercel.app/
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
