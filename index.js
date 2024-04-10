@@ -10,7 +10,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:3000/", //https://think-ai-beta.vercel.app/
+  origin: "https://think-ai-beta.vercel.app/", //https://think-ai-beta.vercel.app/
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
