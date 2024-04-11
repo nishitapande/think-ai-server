@@ -23,11 +23,13 @@ userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, 12);
 });
 
-userSchema.methods.matchPassword = async function (
-  enteredPassword,
-  userPassword
-) {
-  return await bcrypt.compare(enteredPassword, userPassword);
+userSchema.methods.comparePasswords = async function (enteredPassword) {
+  try {
+    return await bcrypt.compare(enteredPassword, this.password);
+  } catch (error) {
+    console.log(this.password);
+    throw new Error("Comparison failed", error);
+  }
 };
 
 const User = mongoose.model("User", userSchema);
