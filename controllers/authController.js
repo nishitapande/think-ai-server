@@ -1,15 +1,5 @@
 const User = require("../models/userModel");
-const jwt = require("jsonwebtoken");
-const generateToken = (user) => {
-  const payload = {
-    id: user._id,
-    email: user.email,
-  };
-
-  return jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-};
+const generateToken = require("../config/jwtConfig");
 
 exports.createAdmin = async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
